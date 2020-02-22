@@ -2,7 +2,7 @@ FROM python:3.7-alpine
 
 RUN adduser -D app
 
-WORKDIR /home/microblog
+WORKDIR /home/app
 
 COPY requirements.txt requirements.txt
 RUN python -m venv venv
