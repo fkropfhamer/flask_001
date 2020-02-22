@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web: 
+    build: .
+    expose:
+      - 5000
+    volumes: 
+      - static_volume:/home/app/static
+
+  nginx:
+    build: ./nginx
+    volumes: 
+      - static_volume:/home/app/static
+    prots:
+      - 1337:80
+    depends_on:
+      - web
+    
+volumes: 
+  static_volume
