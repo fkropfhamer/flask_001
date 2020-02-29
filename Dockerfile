@@ -1,13 +1,3 @@
-FROM node:13-alpine as build
-WORKDIR /build
-
-COPY . /build
-
-RUN npm i
-RUN npm run build
-
-
-
 FROM python:3.7-alpine
 
 RUN adduser -D app
@@ -20,7 +10,6 @@ RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 
 COPY app app
-COPY --from=build /build/app/static /home/app/static
 COPY main.py boot.sh ./
 RUN chmod +x boot.sh
 
