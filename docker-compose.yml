@@ -2,7 +2,9 @@ version: '3'
 
 services:
   build: 
-    build: ./Dockerfile.build
+    build:
+      context: .
+      dockerfile: Dockerfile.build
     volumes: 
       - static_volume:/home/app/static
 
