@@ -3,8 +3,8 @@ version: '3'
 services:
   build: 
     build: ./Dockerfile.build
-  volumes: 
-    - static_volume:/home/app/static
+    volumes: 
+      - static_volume:/home/app/static
 
   web: 
     build: .
