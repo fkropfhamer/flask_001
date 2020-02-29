@@ -1,6 +1,11 @@
 version: '3'
 
 services:
+  build: 
+    build: ./Dockerfile.build
+  volumes: 
+    - static_volume:/home/app/static
+
   web: 
     build: .
     expose:
@@ -8,8 +13,13 @@ services:
 
   nginx:
     build: ./nginx
-
+    volumes: 
+      - static_volume:/home/app/static
     ports:
       - 1337:80
     depends_on:
       - web
+      - build
+
+volumes: 
+  static_volume:
