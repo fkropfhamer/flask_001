@@ -20,7 +20,9 @@ RUN venv/bin/pip install -r requirements.txt
 RUN venv/bin/pip install gunicorn
 
 COPY app app
-COPY --from=build /build/app/static /home/app/static
+# COPY --from=build /build/app/static /home/app/static
+RUN touch app/static/test.js
+RUN echo "console.log('test');" > app/static/test.js
 COPY main.py boot.sh ./
 RUN chmod +x boot.sh
 
