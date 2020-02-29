@@ -1,8 +1,14 @@
 function main() {
-    const darkModeConfig = global.localStorage.getItem("darkmode") === "true";
-    darkmode(darkModeConfig);
+    const darkModeConfig = global.localStorage.getItem("darkmode");
+    let isDarkMode;
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        isDarkMode = true;
+    } else {
+        isDarkMode = darkModeConfig === "true";
+    }
+    darkmode(isDarkMode);
     const darkmodeCheckBox = document.getElementById('darkmode');
-    darkmodeCheckBox.checked = darkModeConfig;
+    darkmodeCheckBox.checked = isDarkMode;
     darkmodeCheckBox.onclick = () => darkmode(darkmodeCheckBox.checked);
     
 }
