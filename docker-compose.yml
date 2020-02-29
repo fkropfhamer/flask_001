@@ -6,12 +6,12 @@ services:
     expose:
       - 5000
     volumes: 
-      - static_volume:/home/app/static
+      - static_volume:/build/app/static
 
   nginx:
     build: ./nginx
     volumes: 
-      - static_volume:/home/app/static
+      - static_volume:/build/app/static
     ports:
       - 1337:80
     depends_on:
