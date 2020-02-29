@@ -7,7 +7,9 @@ services:
       - 5000
 
   nginx:
-    build: ./nginx
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
 
     ports:
       - 1337:80
