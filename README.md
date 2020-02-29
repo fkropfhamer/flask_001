@@ -13,8 +13,20 @@ basic Flask app with setup for docker with docker-compose. It uses for productio
 
 ## Scripts:
 ### development:
+
+### - Server:
+
 - set/export FLASK_APP=main.py
+- set/export FLASK_ENV=development
 - `flask run`
+
+- powershell:
+`$Env:FLASK_APP="main.py"`
+`$Env:FLASK_ENV="development"`
+
+### - Client:
+- npm run watch
+
 ### production:
 - docker-compose up
 

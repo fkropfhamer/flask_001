@@ -5,6 +5,9 @@ from flask import request, jsonify, render_template
 def index():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 @app.route('/send_data', methods=['POST'])
 def send_data():

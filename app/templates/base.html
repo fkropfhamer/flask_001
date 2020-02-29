@@ -7,7 +7,11 @@
     {% block style %}{% endblock %}
 </head>
 <body>
+    <label>mode
+        <input id="darkmode" type="checkbox" />
+    </label>
     {% block content %}{% endblock %}
     {% block script %}{% endblock %}
+    <script src="/static/darkmode.js"></script>
 </body>
 </html>
