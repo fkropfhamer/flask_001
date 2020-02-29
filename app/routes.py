@@ -1,5 +1,5 @@
 from app import app
-from flask import request, jsonify, render_template
+from flask import request, jsonify, render_template, abort
 
 @app.route('/')
 def index():
@@ -15,4 +15,25 @@ def send_data():
     print(data)
 
     return jsonify("Hello")
+
+@app.route('/question', methods=['POST'])
+def question():
+    try:
+        data = request.get_json()
+
+        print(data)
+
+        question = data['question']
+        length = len(question)
+        
+        if (length == 0):
+            raise ValueError("question can´t be empty!")
+
+        if (length % 2 == 0):
+            return jsonify("Yes")
+
+        return jsonify("No")
+    except:
+        abort(400)
+
 
